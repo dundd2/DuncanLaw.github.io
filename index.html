@@ -1,234 +1,287 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Duncan Law - Portfolio</title>
-<style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duncan Law - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-* {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+        body {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: #f3f4f6;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            padding: 50px 20px;
+            overflow-x: hidden;
+        }
 
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-    body {
-        background: linear-gradient(135deg, #1e3a8a, #3b82f6); 
-        color: #f3f4f6;
-        font-family: Arial, sans-serif;
-        padding: 50px;
-        overflow-x: hidden;
-    }
+        .main-header {
+            text-align: center;
+            margin-bottom: 30px;
+            animation: fadeIn 1.2s ease-in-out;
+        }
 
-    .container {
-        max-width: 800px;
-        margin: 0 auto;
-    }
+        .main-header h1 {
+            font-size: 3.5em;
+            line-height: 1.1;
+            color: #bbf7d0;
+        }
 
+        .icons {
+            margin: 20px 0;
+        }
 
-    .main-header {
-        text-align: center;
-        margin-bottom: 30px;
-        animation: fadeIn 1.2s ease-in-out;
-    }
+        .icons img {
+            width: 40px;
+            height: 40px;
+            margin: 0 10px;
+            transition: transform 0.2s, filter 0.2s;
+        }
 
-    h1 {
-        font-size: 2.8em;
-        font-weight: bold;
-        color: #93c5fd;
-        animation: bounce 1.5s ease infinite alternate;
-    }
+        .icons img:hover {
+            transform: scale(1.2);
+            filter: brightness(1.2);
+        }
 
-    @keyframes bounce {
-        0% { transform: translateY(0); }
-        100% { transform: translateY(-5px); }
-    }
+        .about-me {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+            animation: fadeIn 1.5s ease-in-out;
+            margin-bottom: 30px;
+        }
 
+        .about-me p {
+            margin: 10px 0;
+            font-size: 0.9em;
+        }
 
-    h2 {
-        font-size: 1.8em;
-        color: #bbf7d0;
-        margin-top: 40px;
-        text-align: center;
-    }
+        .skills {
+            text-align: center;
+            margin-top: 20px;
+        }
 
+        .skills ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
 
-    .about-me {
-        text-align: center;
-        background: rgba(0, 0, 0, 0.7);
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        animation: fadeIn 1.5s ease-in-out;
-    }
+        .skills li {
+            font-size: 0.9em;
+            padding: 10px 15px;
+            color: #bbf7d0;
+            margin: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
 
+        .skills li:hover {
+            background-color: #2563eb;
+            transform: scale(1.05);
+        }
 
-    .icons {
-        margin: 20px 0;
-    }
+        .projects {
+            display: grid;
+            grid-template-columns: 1fr; /* 第一行獨佔一列 */
+            grid-gap: 20px;
+            margin-top: 20px;
+        }
 
-    .icons img {
-        width: 40px;
-        height: 40px;
-        margin: 0 10px;
-        transition: transform 0.2s;
-    }
+        .project-card {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
 
-    .icons img:hover {
-        transform: scale(1.2); 
-    }
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+        }
 
+        .project-card h3 {
+            font-size: 1.2em;
+            color: #bbf7d0;
+        }
 
-    .skills {
-        text-align: center;
-        margin-top: 20px;
-    }
+        .project-card p {
+            margin: 10px 0;
+            font-size: 0.9em;
+            line-height: 1.4;
+            color: #e5e7eb;
+        }
 
-    .skills ul {
-        list-style: none;
-        padding: 0;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+        .project-card a {
+            color: #93c5fd;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
 
-    .skills li {
-        font-size: 1.1em;
-        padding: 10px 15px;
-        color: #bbf7d0;
-        margin: 10px;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 5px;
-        transition: background-color 0.3s ease;
-    }
+        .project-card a:hover {
+            color: #60a5fa;
+            text-decoration: underline;
+        }
 
-    .skills li:hover {
-        background-color: #2563eb;
-    }
+        .contact-section {
+            text-align: center;
+            margin-top: 40px;
+        }
 
+        .contact-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #3b82f6;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+        }
 
-    .projects {
-        margin-top: 20px;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-        justify-content: center;
-    }
+        .contact-btn:hover {
+            background-color: #2563eb;
+            transform: scale(1.05);
+        }
 
-    .project-card {
-        background: rgba(0, 0, 0, 0.7);
-        padding: 20px;
-        border-radius: 10px;
-        width: calc(100% / 2 - 20px);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        transition: transform 0.3s;
-    }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.8em;
+            color: #e5e7eb;
+        }
 
-    .project-card:hover {
-        transform: translateY(-10px);
-    }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
 
-    .project-card h3 {
-        font-size: 1.3em;
-        color: #bbf7d0;
-    }
-
-    .project-card p {
-        margin: 10px 0;
-        font-size: 1em;
-        line-height: 1.4;
-    }
-
-    .project-card a {
-        color: #93c5fd;
-        text-decoration: none;
-    }
-
-    .project-card a:hover {
-        text-decoration: underline;
-    }
-
-
-    .contact-section {
-        text-align: center;
-        margin-top: 40px;
-    }
-
-    .contact-btn {
-        display: inline-block;
-        padding: 12px 25px;
-        background-color: #3b82f6;
-        color: white;
-        border-radius: 8px;
-        text-decoration: none;
-        font-weight: bold;
-        transition: background-color 0.3s;
-    }
-
-    .contact-btn:hover {
-        background-color: #2563eb;
-    }
-
-    @keyframes fadeIn {
-        0% { opacity: 0; transform: translateY(20px); }
-        100% { opacity: 1; transform: translateY(0); }
-    }
-</style>
+        /* 為後續項目設置每行三個 */
+        .projects-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 三列 */
+            grid-gap: 20px;
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-<div class="main-header">
-<h1>Chun Yin (Duncan) Law</h1>
-<div class="icons">
-<a href="https://www.linkedin.com/in/duncan-l400" target="_blank">
-<img src="linkedin-icon.png" alt="LinkedIn">
-</a>
-<a href="https://github.com/dundd2" target="_blank">
-<img src="github-icon.png" alt="GitHub">
-</a>
-</div>
-</div>
-
-<div class="about-me">
-        <p>Undergraduate Computing Student at University of Sussex</p>
-        <p>Computing for Digital Media and Games BSc (Hons)</p>
-        <p>With a deep-rooted passion for technology and innovation, I specialize in game development, machine learning, and multimedia production. My experience spans from interactive 3D game design to language processing applications, and I’m constantly seeking new challenges to further enhance my skills.</p>
-    </div>
-
-    <div class="skills">
-        <h2>Skills & Tools</h2>
-        <ul>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-            <li>Java</li>
-            <li>Python</li>
-            <li>Unity</li>
-            <li>C#</li>
-        </ul>
-    </div>
-
-    <div class="projects">
-        <h2>Projects</h2>
-        <div class="project-card">
-            <h3><a href="https://github.com/dundd2/IFY-Computing-Project-HW-2023-TokiPonaSpellChecker" target="_blank">Toki Pona Spell Checker</a></h3>
-            <p>A language processing tool for Toki Pona, featuring spell checking, predictive text, and grammar checking.</p>
+    <div class="container">
+        <div class="main-header">
+            <h1>Duncan Law</h1>
+            <div class="icons">
+                <a href="https://www.linkedin.com/in/duncan-l400" target="_blank">
+                    <img src="linkedin-icon.png" alt="LinkedIn">
+                </a>
+                <a href="https://github.com/dundd2" target="_blank">
+                    <img src="github-icon.png" alt="GitHub">
+                </a>
+            </div>
         </div>
-        <div class="project-card">
-            <h3><a href="https://github.com/dundd2/IFY-Object-Oriented-Programming-with-Java-HW-2023-Football-Results" target="_blank">Football Results App</a></h3>
-            <p>A Java application for managing football match data, tracking scores, and calculating team statistics.</p>
-        </div>
-        <div class="project-card">
-            <h3><a href="https://github.com/dundd2/IFY-Website-Design-and-Development-Homework-2023-akibTsuu-Film-Productions" target="_blank">aibiTsuu Film Productions Website</a></h3>
-            <p>A responsive website for a fictional film production company, utilizing HTML5, CSS, and JavaScript.</p>
-        </div>
-    </div>
 
-    <div class="contact-section">
-        <a href="mailto:dunddatuk@gmail.com" class="contact-btn">Contact Me</a>
+        <div class="about-me">
+            <p>Undergraduate Computing Student at University of Sussex</p>
+            <p>Computing for Digital Media and Games BSc (Hons)</p>
+            <p>With a deep-rooted passion for technology and innovation, I specialize in game development, machine learning, and multimedia production. My experience spans from interactive 3D game design to language processing applications, and I’m constantly seeking new challenges to further enhance my skills.</p>
+        </div>
+
+        <div class="skills">
+            <h2>Skills & Tools</h2>
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>Java</li>
+                <li>Python</li>
+                <li>TypeScript</li>
+                <li>React</li>
+                <li>Unity</li>
+                <li>C#</li>
+                <li>Jupyter Notebook</li>
+            </ul>
+        </div>
+
+        <h2 style="text-align: center; margin: 40px 0;">Projects</h2>
+        <div class="projects">
+            <div class="project-card prize-winner">
+                <h3><a href="https://github.com/dundd2/ML-Challenge2023" target="_blank">ML Challenge 2023 <br> <span style="color: gold;">**Prize Winner!**</span></a></h3>
+                <p>This project won the "Most Creative Solution" prize! I achieved a 99.89% accuracy rate in classifying sensor data to determine walking vs. driving. The project demonstrates creative problem-solving in machine learning.</p>
+            </div>
+        </div>
+
+        <div class="projects projects-3">
+
+            <div class="project-card">
+                <h3><a href="https://github.com/dundd2/IFY-Computing-Project-HW-2023-TokiPonaSpellChecker" target="_blank">Toki Pona Spell Checker</a></h3>
+                <p>Showcasing Java programming skills with a Toki Pona Spell Checker, featuring spell checking, predictive text, and grammar validation.</p>
+            </div>
+            <div class="project-card">
+                <h3><a href="https://github.com/dundd2/IFY-Object-Oriented-Programming-with-Java-HW-2023-Football-Results" target="_blank">Football Results App</a></h3>
+                <p>Showcasing Java programming skills with a Football Results Application, tracking match outcomes and team statistics while employing object-oriented principles.</p>
+            </div>
+            <div class="project-card">
+                <h3><a href="https://github.com/dundd2/IFY-Website-Design-and-Development-Homework-2023-akibTsuu-Film-Productions" target="_blank">akibTsuu Film Productions Website</a></h3>
+                <p>A project that combines HTML5, CSS3, and JavaScript to create a fictional film production company's interactive website.</p>
+            </div>
+            <div class="project-card">
+                <h3><a href="https://github.com/dundd2/Y2-Video-Production-Techniques-Assignment-1" target="_blank">Video Production Techniques</a></h3>
+                <p>Showcasing photography and video production skills, focusing on narrative structure and editing.</p>
+            </div>
+            <div class="project-card">
+                <h3><a href="https://github.com/dundd2/Y1-Introduction-to-Multimedia-Multimedia-Web-Site-Development" target="_blank">Multimedia Website Development</a></h3>
+                <p>A multimedia website showcasing web development skills, integrating video and interactive features.</p>
+            </div>
+            <div class="project-card">
+                <h3><a href="https://github.com/dundd2/Y1-Introduction-to-Programming-Project-T1" target="_blank">Library Management System</a></h3>
+                <p>A Java-based project focusing on object-oriented design and data structures.</p>
+            </div>
+            <div class="project-card">
+                <h3><a href="https://github.com/dundd2/Youthful-Quote-Generator" target="_blank">Youthful Quote Generator</a></h3>
+                <p>A Python application that generates and saves personalized quotes centered on courage, love, and friendship.</p>
+            </div>
+            <div class="project-card">
+                <h3><a href="https://github.com/dundd2/Plurk-Backup-Master" target="_blank">Plurk Backup Master</a></h3>
+                <p>Easily back up all images, messages, and replies from Plurk.com using Python, streamlining your social media management.</p>
+            </div>
+            <div class="project-card">
+                <h3><a href="https://github.com/dundd2/First-Website-of-Dunc" target="_blank">First Website of Dunc</a></h3>
+                <p>My initial web development project focusing on HTML fundamentals.</p>
+            </div>
+            <div class="project-card">
+                <h3><a href="https://github.com/dundd2/Personalized-Aircraft-Tier-List" target="_blank">Personalized Aircraft Tier List</a></h3>
+                <p>An interactive React-based tier list for ranking Airbus and Boeing aircraft.</p>
+            </div>
+        </div>
+
+        <div class="contact-section">
+            <h2>Contact Me</h2>
+            <p>For inquiries or collaborations, feel free to reach out!</p>
+            <a href="mailto:duncan.law@example.com" class="contact-btn">Email Me</a>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2024 Duncan Law. All rights reserved.</p>
+        </div>
     </div>
-</div>
 </body>
 </html>
