@@ -5,15 +5,6 @@ Welcome to my portfolio website! This project showcases my work and skills as a 
 ## Live Demo
 Visit my portfolio at: https://dundd2.github.io/Portfolio-Website/
 
-## Table of Contents
-
-- [Overview](#overview)
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Project Structure](#project-structure)
-- [How to View the Website](#how-to-view-the-website)
-- [Contact Information](#contact-information)
-
 ## Overview
 
 This portfolio website serves as a digital representation of my capabilities and experiences in the field of computing. It highlights my passion for technology, game development, and multimedia production.
